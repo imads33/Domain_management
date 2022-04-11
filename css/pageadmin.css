@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #d96aa7;
+  --secondary-color: #422c73;
+  --complimentary-color: #88bfb5;
+  --contrast-color: #f2e527;
+  --light-color: #d2a9d9;
+}
+.container {
+  align-self:flex-end;
+  right: -4%;
+}
+nav a {
+  font-size: 20px;
+  color: #191919;
+  text-decoration: none;
+  padding: 20px;
+  text-align: center;
+}
+.sidebar {
+  position: fixed;
+  /* margin-top:2vh; */
+  left: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 85vh;
+  background: #ffff;
+}
+section {
+  position:fixed;
+  top: 0;
+  /* height: 100vh; */
+  width: 0;
+  opacity: 0;
+  transition: all ease-in 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section h1 {
+  color: #191919;
+  font-size: 50px;
+  text-transform: uppercase;
+  opacity: 0;
+}
+section:target {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+section:target h1 {
+  opacity: 0;
+  animation: 2s fadeIn forwards 0.5s;
+}
+/* #users {
+  background: var(--primary-color);
+}
+#owners {
+  background: var(--complimentary-color);
+}
+#domains {
+  background: var(--contrast-color);
+}
+#plans {
+  background: var(--light-color);
+} */
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,825 @@
+<!-- <div class="navbar-end" style="margin-right: 80px;">
+                <a href="#" class="navbar-item modal-button" id="signup" data-target="#modal" aria-haspopup="true">Sign in &nbsp;<span class="icon is-small"><i class="fas fa-sign-in-alt" aria-hidden="true"></i></span>
+                </a>
+            </div> -->
+
+<!-- <div class="navbar-end" style="margin-right: 80px;">
+                <a href="index.php" class="navbar-item modal-button" id="logout">Logout &nbsp;<span class="icon is-small"><i class="fas fa-blind" aria-hidden="true"></i></span>
+                </a>
+            </div> -->
+            
+<!-- LOGIN AND REGISTRATION FORM -->
+    <section class="section">
+        <div class="container">
+            <div id="modal" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="tabs is-centered">
+                                    <ul>
+                                        <li class="is-active" id="activeIdOne">
+                                            <a data-select="one" id="one" href="javascript:void(0)">
+                                                <span class="icon is-small"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+                                                <span>Login</span>
+                                            </a>
+                                        </li>
+                                        <li id="activeIdTwo">
+                                            <a data-select="two" id="two" href="javascript:void(0)">
+                                                <span class="icon is-small"><i class="fas fa-sign-in-alt" aria-hidden="true"></i></span>
+                                                <span>Register</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <form action="">
+                                    <div class="login" id="tabs1">
+                                        <div class="field">
+                                            <label class="label">Username</label>
+                                            <div class="control has-icons-left has-icons-right">
+                                                <input class="input grey-darker" type="text" placeholder="Username" required>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-user"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Password</label>
+                                            <p class="control has-icons-left">
+                                                <input class="input" type="password" placeholder="Password" required>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <label class="checkbox">
+                                                <input type="checkbox">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <div class="field">
+                                            <div class="control mt-5">
+                                                <button class="button is-success is-fullwidth" type="submit">Login</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="register is-hidden" id="tabs2">
+                                        <div class="field">
+                                            <label class="label">Name</label>
+                                            <div class="control">
+                                                <input class="input" type="text" placeholder="Text input">
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Username</label>
+                                            <div class="control has-icons-left has-icons-right">
+                                                <input class="input" type="text" placeholder="Username" required>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-user"></i>
+                                                </span>
+                                                <span class="icon is-small is-right">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Password</label>
+                                            <p class="control has-icons-left">
+                                                <input class="input" type="password" name="password1" placeholder="Password" required>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Email</label>
+                                            <div class="control has-icons-left has-icons-right">
+                                                <input class="input" type="email" placeholder="Email" required>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Confirm Password</label>
+                                            <p class="control has-icons-left">
+                                                <input class="input" type="password" name="password2" placeholder="Confirm Password">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="control">
+                                                <label class="checkbox">
+                                                    <input type="checkbox">
+                                                    I agree to the <a href="#">terms and conditions</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="control mt-5 ml-6">
+                                                <button class="button is-link ml-4" type="submit" style="width: 70%;">Register</button>
+
+                                                <button class="button is-danger is-outlined ml-3" type="reset">Clear
+                                                    inputs</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </div>
+    </section>
+
+    <?php
+
+
+    $link = new mysqli("localhost", "root", '', "domain_db");
+
+    if (isset($_POST['signup'])) {
+        $query = mysqli_query($link, "INSERT into  `user`(`user_id`, `user_name`, `email`, `password`) values(NULL,'$_POST[user]','$_POST[email]','$_POST[pass]') ;    ");
+
+    ?>
+        <script>
+            window.location.href = "purchase.php";
+        </script>
+
+    <?php
+    }
+
+    ?>
+
+bulma card
+
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+    </div>
+  </div>
+</div>
+
+
+<?php
+include('_dbconnect.php');
+$login = false;
+$showerror = false;
+if (isset($_POST['login'])) {
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $existSql = "SELECT * FROM `user` WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $existSql);
+    $exists = mysqli_num_rows($result);
+
+    if ($exists == 1) {
+        $login = true;
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $email;
+        header("location: purchase.php");
+    } else {
+        $showerror = "Invlid Credentials";
+    }
+}
+?>
+
+INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`, `date`) VALUES ('1', 'admin1', 'vhost.admin@gmail.com', 'vhost321', '2021-12-31');
+
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    header("location: ./login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>VHost</title>
+</head>
+
+<body>
+    <nav class="breadcrumb is-right py-4 px-2" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="./logout.php" class="navbar-item"><button class="button is-danger">
+                        logout</button></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container is-max-widescreen">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><abbr title="Position">Sl. num</abbr></th>
+                    <th>Use Name</th>
+                    <th><abbr title="Played">Email</abbr></th>
+                    <th><abbr title="Won">Phone</abbr></th>
+                    <th><abbr title="Drawn">Reg. Date</abbr></th>
+                    <th><abbr title="Lost">L</abbr></th>
+                    <th><abbr title="Goals for">GF</abbr></th>
+                    <th><abbr title="Goals against">GA</abbr></th>
+                    <th><abbr title="Goal difference">GD</abbr></th>
+                    <th><abbr title="Points">Pts</abbr></th>
+                    <th>Qualification or relegation</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="Position">Sl. num</abbr></th>
+                    <th>Use Name</th>
+                    <th><abbr title="Played">Email</abbr></th>
+                    <th><abbr title="Won">Phone</abbr></th>
+                    <th><abbr title="Drawn">Reg. Date</abbr></th>
+                    <th><abbr title="Lost">L</abbr></th>
+                    <th><abbr title="Goals for">GF</abbr></th>
+                    <th><abbr title="Goals against">GA</abbr></th>
+                    <th><abbr title="Goal difference">GD</abbr></th>
+                    <th><abbr title="Points">Pts</abbr></th>
+                    <th>Qualification or relegation</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    </td>
+                    <td>38</td>
+                    <td>23</td>
+                    <td>12</td>
+                    <td>3</td>
+                    <td>68</td>
+                    <td>36</td>
+                    <td>+32</td>
+                    <td>81</td>
+                <tr>
+                    <th>2</th>
+                    <td>38</td>
+                    <td>20</td>
+                    <td>11</td>
+                    <td>7</td>
+                    <td>65</td>
+                    <td>36</td>
+                    <td>+29</td>
+                    <td>71</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+<?php
+                    if ($showalert) {
+                        echo '
+                        <div class="notification is-success">
+                        <button class="delete"></button>
+                        <strong> Success !!</strong> " your account is created now you can login "
+                        </div>';
+                    }
+                    if ($showerror) {
+                        echo '
+                        <div class="notification is-danger is-light">
+                        <button class="delete"></button>
+                        <strong>Error!!! </strong> ' . $showerror . '
+                        </div>';
+                    }
+                    ?>
+
+<!-- <script>
+                window.location.href = 'signin.php';
+            </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="section is-medium" style="margin-top: 5%;">
+        <div class="container">
+            <i>
+                <h3 class=" title is-size 4">Plans and pricing</h3>
+            </i>
+            <div class="columns mt-5 is-8 is-variable is-centered"> -->
+                <!-- <div class=" column is-4-tablet is-3-desktop">
+                    <div class="card">
+                        <form action="./purchase.php" method="post">
+                            <header class="card-header has-text-centered">
+                                <p class="card-header-title is-centered">
+                                    BASIC
+                                </p><br>
+                                <p class="card-header-title is-centered">
+                                    ₹ 599/ Year
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <p style="font-size: small;">Low-cost affordable hosting to get you started.</p>
+                                    <ul>
+                                        <li><b>Standered</b> Performence</li>
+                                        <li><b>1</b> Domain</li>
+                                        <li><b>10GB</b> Storage</li>
+                                        <li><b>unmetered</b> bandwidth</li>
+                                        <li>24/7 support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <button type="submit" name="1010" class="button has-background-primary-dark	has-text-white	is-large is-fullwidth">Buy Now</button>
+
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card has-background-primary-light">
+                        <form action="./purchase.php" method="post">
+                            <header class="card-header has-text-centered">
+                                <p class="card-header-title is-centered">
+                                    STANDARD
+                                </p>
+                                <p class="card-header-title is-centered">
+                                    ₹ 899/ Year
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <ul>
+                                        <li><b>Standered</b> Performence</li>
+                                        <li><b>3</b> Domain</li>
+                                        <li><b>10</b> SubDomain</li>
+                                        <li><b>30GB</b> Storage</li>
+                                        <li><b>unmetered</b> bandwidth</li>
+                                        <li>24/7 support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <button type="submit" name="1020" class="button has-background-primary-dark	has-text-white	is-large is-fullwidth">Buy Now</button>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="column is-4-tablet is-3-desktop ">
+                    <div class="card has-background-danger-light">
+                        <form action="./purchase.php" method="post">
+                            <header class="card-header has-text-centered">
+                                <p class="card-header-title is-centered">
+                                    PREMIUM
+                                </p>
+                                <p class="card-header-title is-centered">
+                                    ₹ 1,599/Year
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <ul>
+                                        <li><b>Increased</b> processing power</li>
+                                        <li><b>10</b> Domain</li>
+                                        <li><b>30</b> SubDomain</li>
+                                        <li><b>150GB</b> SSD space</li>
+                                        <li><b>unmetered</b> bandwidth</li>
+                                        <li>24/7 support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <button type="submit" name="1030" class="button has-background-primary-dark	has-text-white	is-large is-fullwidth">Buy Now</button>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card has-background-warning-light">
+                        <header class="card-header has-text-centered">
+                            <p class="card-header-title is-centered">
+                                ENTERPRISE
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul>
+                                    <br>
+                                    pricing not declared
+                                    <p><a href="contactus.php">contact us</a>&nbsp;for pricing & more details
+                                    </p>
+                                    <br>
+                                    <br>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+
+                            <button class="button has-background-warning  has-text-white  is-large is-fullwidth"><a href="contactus.php" style="color: inherit;text-decoration: none;">Contact</a></button>
+                        </footer>
+                    </div>
+                </div> -->
+            <!-- </div>
+        </div>
+    </section> -->
+
+
+if (isset($_POST['1010'])) {
+                                        echo "Basic";
+                                    } elseif (isset($_POST['1020'])) {
+                                        echo "Standard";
+                                    } else {
+                                        echo "Premium";
+                                    }
+
+
+
+    $quert = mysqli_query($conn, "SELECT * from plans");
+
+    while ($row = mysqli_fetch_array($quert)) {
+        $plan_amt = $row['ammount'];
+        $plan_name = $row['plan_title'];
+        $plan_id = $row['plan_id'];
+    }
+
+    <!-- <div class="collapse" id="collapseExample2">
+        <div class="card card-body">
+            <h1><b>Domain Information</b></h1>
+            <hr>
+            <div class="container">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Sl. num</th>
+                            <th scope="col">Domain Name</th>
+                            <th scope="col">Owner Email</th>
+                            <th scope="col">Plan</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Server Loc.</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>38</td>
+                            <td>iu@gmai.com</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>3</td>
+                        <tr>
+                            <th>2</th>
+                            <td>38</td>
+                            <td>20</td>
+                            <td>11</td>
+                            <td>38</td>
+                            <td>20</td>
+                            <td>11</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
+
+
+    <?php if ($row['user_email'] == 'vhost.admin@gmail.com') {
+                                        echo
+                                        '<td>
+                                            ------
+                                        </td>
+                                        <td>
+                                        ------
+                                        </td>';
+                                    } else {
+                                        echo
+                                        '<td>
+                                            <button type="button" class="btn btn-warning">Update </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>';
+                                    } ?>
+
+<a href="./_update.php?php echo $row['user_id']; ?>" style="text-decoration:none;" class="text-dark">
+
+
+
+<section class="section is-medium" style="margin-top: 2%;">
+        <h3 class="title is-size 4">Plans and pricing</h3>
+        <div class="container">
+            <div class="columns mt-5 is-8 is-variable">
+                <?php
+                while ($row = mysqli_fetch_assoc($query)) {
+                    $plan_id = $row['plan_id'];
+                ?>
+
+                    <div class="column is-4-tablet is-3-desktop">
+                        <div class="card">
+                            <form action="./purchase.php" method="post">
+                                <header class="card-header has-text-centered">
+                                    <p class="card-header-title is-centered" name="plan">
+                                        <?php echo $row['plan_title']; ?>
+                                    </p><br>
+                                    <p class="card-header-title is-centered" name="amount">
+                                        <?php echo $row['ammount']; ?>
+                                    </p>
+                                </header>
+                                <div class="card-content">
+                                    <?php if ($row['plan_id'] == '1010') {
+                                        echo
+                                        '<div class="content">
+                                            <p style="font-size: small;">Low-cost affordable hosting to get you started.</p>
+                                            <ul>
+                                                <li><b>Standered</b> Performence</li>
+                                                <li><b>1</b> Domain</li>
+                                                <li><b>10GB</b> Storage</li>
+                                                <li><b>unmetered</b> bandwidth</li>
+                                                <li>24/7 support</li>
+                                            </ul>
+                                        </div>';
+                                    } elseif ($row['plan_id'] == '1020') {
+                                        echo
+                                        '<div class="content">
+                                        <ul>
+                                            <li><b>Standered</b> Performence</li>
+                                            <li><b>3</b> Domain</li>
+                                            <li><b>10</b> SubDomain</li>
+                                            <li><b>30GB</b> Storage</li>
+                                            <li><b>unmetered</b> bandwidth</li>
+                                            <li>24/7 support</li>
+                                        </ul>
+                                        </div>';
+                                    } else {
+                                        echo
+                                        '<div class="content">
+                                            <ul>
+                                                <li><b>Increased</b> processing power</li>
+                                                <li><b>10</b> Domain</li>
+                                                <li><b>30</b> SubDomain</li>
+                                                <li><b>150GB</b> SSD space</li>
+                                                <li><b>unmetered</b> bandwidth</li>
+                                                <li>24/7 support</li>
+                                            </ul>
+                                        </div>';
+                                    }
+                                    ?>
+                                </div>
+                                <footer class="card-footer">
+                                    <button type="submit" name="<?php $plan_id ?>" class="button has-background-primary-dark	has-text-white	is-large is-fullwidth">Buy Now
+                                    </button>
+                                </footer>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card has-background-warning-light">
+                        <header class="card-header has-text-centered">
+                            <p class="card-header-title is-centered">
+                                ENTERPRISE
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul>
+                                    <br>
+                                    pricing not declared
+                                    <p><a href="contactus.php">contact us</a>&nbsp;for pricing & more details
+                                    </p>
+                                    <br>
+                                    <br>
+                                </ul>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <button class="button has-background-warning  has-text-white  is-large is-fullwidth"><a href="contactus.php" style="color: inherit;text-decoration: none;">Contact</a></button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <?php if ($showerror) {
+                echo '
+                    <div class="notification is-danger is-light">
+                    <button class="delete"></button>
+                    <strong>Error ! </strong> ' . $showerror . '
+                    </div>';
+            } ?>
+
+
+
+
+            <div class="container">
+        <div class="main-body">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 mx-auto">
+                    <div class="card mb-3">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="../images/minato.jpg" alt="User" class="rounded-circle" width="150" height="150" style="margin-top: 2%;">
+                            <div class="mt-3">
+                                <h4>John Doe</h4>
+                                <h6>John Doe</h6>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Full Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Kenneth Valdez
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    fip@jukmuh.al
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    (239) 816-9029
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Address</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Bay Area, San Francisco, CA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 ">
+                        <div class="card-body">
+                            <div class="d-flex flex-column">
+                                <div class="mt-3">
+                                    <h1>Purchase details</h1>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Domain Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Kenneth Valdez
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Plan</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    fip@jukmuh.al
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Price</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    fip@jukmuh.al
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Server location</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    fip@jukmuh.al
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Started</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    (239) 816-9029
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Ends on</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Bay Area, San Francisco, CA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    body {
+            margin-top: 20px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #e2e8f0;
+        }
+
+        .main-body {
+            padding: 15px;
+        }
+
+        .card {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1rem;
+        }
+
+        .gutters-sm {
+            margin-right: -8px;
+            margin-left: -8px;
+        }
+
+        .gutters-sm>.col,
+        .gutters-sm>[class*=col-] {
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        .mb-3,
+        .my-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .bg-gray-300 {
+            background-color: #e2e8f0;
+        }
+
+        .h-100 {
+            height: 100% !important;
+        }
+
+        .shadow-none {
+            box-shadow: none !important;
+        }

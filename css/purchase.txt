@@ -1,0 +1,156 @@
+<?php
+session_start();
+$logout = false;
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    header("location: ./login.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>Purchase</title>
+</head>
+
+<body>
+    <?php
+
+    include '_dbconnect.php';
+
+    $quert = mysqli_query($conn, "SELECT * from amount  ");
+
+    while ($row = mysqli_fetch_array($quert)) {
+        $basic_amt = $row['basic'];
+        $std_amt = $row['standard'];
+        $prem_amt = $row['premium'];
+    }
+
+    ?>
+
+    <section class="section">
+        <div class=" container ">
+            <form method="POST" action="">
+                <div class="columns mt-3 is-8 is-variable is-centered ">
+                    <div class="column is-4-tablet is-mobile is-6-desktop">
+                        <h1 class="title is-1 is-spaced has-text-centered">Domain Info.</h1><br>
+                        <div class="register" id="tabs2">
+                            <div class="field">
+                                <label class="label">Domain name</label>
+                                <div class="control">
+                                    <input name="domainname" class="input" type="text" placeholder="ex : xyz.com" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Plan</label>
+                                <div class="control">
+                                    <input disabled name="plan" class="input" type="text" value="
+                                    <?php if (isset($_POST['basic'])) {
+                                        echo "Basic";
+                                    } elseif (isset($_POST['standard'])) {
+                                        echo "Standard";
+                                    } else {
+                                        echo "Premium";
+                                    }
+                                    ?>" placeholder="" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Ammount</label>
+                                <div class="control">
+                                    <input name="ammount" class="input" type="email" disabled value="
+                                    <?php if (isset($_POST['basic'])) {
+                                        echo $basic_amt;
+                                    } elseif (isset($_POST['standard'])) {
+                                        echo $std_amt;
+                                    } else {
+                                        echo $prem_amt;
+                                    }  ?>" placeholder="ammount" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Server Loc.</label>
+                                <div class="select is-normal is-fullwidth">
+                                    <select name="location">
+                                        <option disabled>Choose nearest</option>
+                                        <option>AUSTRALIA</option>
+                                        <option>BRAZIL</option>
+                                        <option>FRANCE</option>
+                                        <option>ITALY</option>
+                                        <option selected>INDIA</option>
+                                        <option>LONDON</option>
+                                        <option>PARIS</option>
+                                        <option>ROME</option>
+                                        <option>USA</option>
+                                        <option>UAE</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field" required>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    I agree to the <a href="#">terms and conditions</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-4-tablet is-mobile is-6-desktop ">
+                        <h1 class="title is-1 is-spaced has-text-centered">User Info.</h1><br>
+                        <div class="register" id="tabs2">
+                            <div class="field">
+                                <label class="label">Username</label>
+                                <div class="control">
+                                    <input name="username" class="input" type="text" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Full Name</label>
+                                <div class="control">
+                                    <input name="fullname" class="input" type="text" placeholder="Enter Name" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Email</label>
+                                <div class="control">
+                                    <input name="email" class="input" type="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Phone</label>
+                                <p class="control">
+                                    <input name="phone" class="input" type="number" placeholder="123-456-7890" required>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">GENDER</label>
+                                <div class="select is-normal is-fullwidth">
+                                    <select>
+                                        <option disabled>Choose any</option>
+                                        <option selected>MALE</option>
+                                        <option>FEMALE</option>
+                                        <option>OTHERS</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control mt-5">
+                        <input name="submit" class="button is-success mt-4 is-fullwidth  is-medium  is-rounded is-outlined" type="submit" value="Proceed"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
