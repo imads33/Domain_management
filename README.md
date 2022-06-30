@@ -5,7 +5,7 @@
 - heheh
 - fmgklfkl
 
-!(https://github.com/imads33/Domain_management/edit/master/README.md)[link]
+[link](https://github.com/imads33/Domain_management/edit/master/README.md)
 
 1. fjkd
 2. jkhsdh
